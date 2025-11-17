@@ -19,5 +19,49 @@
     <header>
         <h1>Tienda de productos PHP - Fran Riera</h1>
     </header>
+
+    <main>
+        
+        <h2>Listado de productos</h2>
+
+        <!-- PRODUCT GRID -->
+         <div class="product-grid">
+
+            <div class="product-card">
+                <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
+                <p class="product-name">Nombre</p>
+                <p class="product-category">Categoria</p>
+                <p class="product-price">Precio</p>
+
+                <div class="product-button">
+                    <a href="#">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
+                <p class="product-name">Nombre</p>
+                <p class="product-category">Categoria</p>
+                <p class="product-price">Precio</p>
+
+                <div class="product-button">
+                    <a href="#">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
+                <p class="product-name">Nombre</p>
+                <p class="product-category">Categoria</p>
+                <p class="product-price">Precio</p>
+
+                <div class="product-button">
+                    <a href="#">Ver producto</a>
+                </div>
+            </div>
+         </div>
+    </main>
+
+
 </body>
 </html>
