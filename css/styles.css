@@ -51,6 +51,23 @@ main {
   border-radius: 8px;
 }
 
+.product-card .product-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: darkcyan;
+}
+
+.product-card .product-category {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.product-card .product-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .product-card .product-button {
   display: flex;
   justify-content: end;
@@ -87,4 +104,56 @@ main {
   text-decoration: none;
   margin: 20px;
   font-size: 20px;
+}
+
+.back-button a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #31343c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.product-detail {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.product-detail img {
+  flex: 0 0 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.product-data .product-name {
+  font-size: 36px;
+  font-weight: 700;
+  color: darkcyan;
+}
+
+.product-data .product-category {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.product-data .product-price {
+  font-size: 24px;
+  font-weight: bold;
 }

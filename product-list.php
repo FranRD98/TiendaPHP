@@ -39,8 +39,6 @@
 
     <main>
         
-        <h2>Listado de productos</h2>
-
         <!-- PRODUCT GRID -->
          <div class="product-grid">
 
@@ -57,7 +55,7 @@
                         <p class="product-price"><?= number_format($p['precio'], 2) ?> €</p>
 
                         <div class="product-button">
-                            <a href="detalle.php?id=<?= $p['id'] ?>">Ver producto</a>
+                            <a href="product-detail.php?id=<?= $p['id'] ?>">Ver producto</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -67,21 +65,20 @@
     </main>
 
     <!-- Paginación -->
-<div class="pagination">
+    <div class="pagination">
 
-    <!-- Si estamos en una página diferente a la primera página, se mostrará la opción de volver atrás -->
-    <?php if ($pagina > 1): ?>
-        <a href="?p=<?= $pagina - 1 ?>"> ← </a>
-    <?php endif; ?>
+        <!-- Si estamos en una página diferente a la primera página, se mostrará la opción de volver atrás -->
+        <?php if ($pagina > 1): ?>
+            <a href="?p=<?= $pagina - 1 ?>"> ← </a>
+        <?php endif; ?>
 
-    Página <?= $pagina ?> de <?= $totalPaginas ?>
+        Página <?= $pagina ?> de <?= $totalPaginas ?>
 
-    <!-- Si estamos en una página diferente a la última página, se mostrará la opción de siguiente -->
-    <?php if ($pagina < $totalPaginas): ?>
-        <a href="?p=<?= $pagina + 1 ?>">→</a>
-    <?php endif; ?>
-</div>
-
+        <!-- Si estamos en una página diferente a la última página, se mostrará la opción de siguiente -->
+        <?php if ($pagina < $totalPaginas): ?>
+            <a href="?p=<?= $pagina + 1 ?>">→</a>
+        <?php endif; ?>
+    </div>
 
 </body>
 </html>
