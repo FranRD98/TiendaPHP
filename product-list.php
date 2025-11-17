@@ -1,5 +1,18 @@
+<?php 
+    require_once 'db/functions.php'; // Funciones de la base de datos
+
+    // Configuración de paginación
+    $productosPorPagina = 20; // Total de productos que queremos por pagina
+    $pagina = isset($_GET['p']) ? intval($_GET['p']) : 1; // Detectar en que página estamos, si no la tenemos, le añadimos 1
+    $offset = ($pagina - 1) * $productosPorPagina;
+
+    // DATOS
+    $productos  = obtenerProductosPaginados($db, $productosPorPagina, $offset);
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,38 +40,25 @@
         <!-- PRODUCT GRID -->
          <div class="product-grid">
 
-            <div class="product-card">
-                <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
-                <p class="product-name">Nombre</p>
-                <p class="product-category">Categoria</p>
-                <p class="product-price">Precio</p>
+            <?php if (empty($productos)): ?>
+                <p>No hay productos para mostrar.</p>
+            <?php else: ?>
 
-                <div class="product-button">
-                    <a href="#">Ver producto</a>
-                </div>
-            </div>
+                <?php foreach ($productos as $p): ?>
 
-            <div class="product-card">
-                <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
-                <p class="product-name">Nombre</p>
-                <p class="product-category">Categoria</p>
-                <p class="product-price">Precio</p>
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
+                        <p class="product-name"><?= htmlspecialchars($p['nombre']) ?></p>
+                        <p class="product-category"><?= htmlspecialchars($p['categoria']) ?></p>
+                        <p class="product-price"><?= number_format($p['precio'], 2) ?> €</p>
 
-                <div class="product-button">
-                    <a href="#">Ver producto</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
-                <p class="product-name">Nombre</p>
-                <p class="product-category">Categoria</p>
-                <p class="product-price">Precio</p>
-
-                <div class="product-button">
-                    <a href="#">Ver producto</a>
-                </div>
-            </div>
+                        <div class="product-button">
+                            <a href="detalle.php?id=<?= $p['id'] ?>">Ver producto</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+ 
          </div>
     </main>
 
