@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>Tienda de productos PHP - Fran Riera</h1>
     </header>
