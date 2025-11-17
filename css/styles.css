@@ -70,3 +70,21 @@ main {
 .product-card .product-button a:hover {
   background-color: #555;
 }
+
+.pagination {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: darkcyan;
+  color: white;
+}
+
+.pagination a {
+  color: white;
+  text-decoration: none;
+  margin: 20px;
+  font-size: 20px;
+}

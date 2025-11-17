@@ -6,6 +6,10 @@
     $pagina = isset($_GET['p']) ? intval($_GET['p']) : 1; // Detectar en que página estamos, si no la tenemos, le añadimos 1
     $offset = ($pagina - 1) * $productosPorPagina;
 
+    // Calcular número de paginas para la paginación
+    $totalProductos = contarProductos($db); // Contamos el total de productos para saber el total de páginas
+    $totalPaginas = ceil($totalProductos / $productosPorPagina); // Calculamos el total de páginas
+
     // DATOS
     $productos  = obtenerProductosPaginados($db, $productosPorPagina, $offset);
 ?>
@@ -47,7 +51,7 @@
                 <?php foreach ($productos as $p): ?>
 
                     <div class="product-card">
-                        <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=Producto" alt="Producto" />
+                        <img src="https://placehold.co/600x600/EEE/31343C?font=poppins&text=<?= htmlspecialchars($p['nombre']) ?>" alt="<?= htmlspecialchars($p['nombre']) ?>" />
                         <p class="product-name"><?= htmlspecialchars($p['nombre']) ?></p>
                         <p class="product-category"><?= htmlspecialchars($p['categoria']) ?></p>
                         <p class="product-price"><?= number_format($p['precio'], 2) ?> €</p>
@@ -61,6 +65,22 @@
  
          </div>
     </main>
+
+    <!-- Paginación -->
+<div class="pagination">
+
+    <!-- Si estamos en una página diferente a la primera página, se mostrará la opción de volver atrás -->
+    <?php if ($pagina > 1): ?>
+        <a href="?p=<?= $pagina - 1 ?>"> ← </a>
+    <?php endif; ?>
+
+    Página <?= $pagina ?> de <?= $totalPaginas ?>
+
+    <!-- Si estamos en una página diferente a la última página, se mostrará la opción de siguiente -->
+    <?php if ($pagina < $totalPaginas): ?>
+        <a href="?p=<?= $pagina + 1 ?>">→</a>
+    <?php endif; ?>
+</div>
 
 
 </body>
